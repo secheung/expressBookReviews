@@ -38,10 +38,10 @@ public_users.post("/register", (req,res) => {
 public_users.get('/',function (req, res) {
     //Write your code here
     let queryPromise = new Promise((resolve,reject)=>{
-      resolve(res.send(JSON.stringify({books},null,4)+'\n'));
+      resolve(JSON.stringify({books},null,4)+'\n');
     })
     
-    queryPromise.then(()=>{console.log("resolved getting books")})
+    queryPromise.then((output)=>{return res.send(output)})
 });
 
 // Get book details based on ISBN
